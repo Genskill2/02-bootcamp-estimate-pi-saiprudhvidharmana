@@ -2,16 +2,15 @@ import math
 import random
 import unittest
 def wallis(n):
-    half_pi_value = 1
-    product = 1
-    for i in range(1,n+1):
-        product = (((2*i)**2)/(((2*i)**2)+2))
-        half_pi_value = half_pi_value * product
-    pi_value = 2 * half_pi_value
-    return pi_value
+    product = 2
+    pi_value = 1
+    for i in range(n):
+        term = product**2 /(product**2 - 1)
+        pi_value *= term
+        product += 2
 
-import random
-import math
+    return 2*pi_value
+
 def monte_carlo(x):
     circle_inside_points = 0
     square_inside_points = 0
