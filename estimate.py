@@ -1,19 +1,13 @@
 import math
 import unittest
-def wallis(x):
-    multiplier = 2
+def wallis(n):
+    half_pi_value = 1
     product = 1
-    for i in range(x):
-        term = multiplier**2 /(multiplier**2 - 1)
-        product *= term
-        multiplier += 2
-
-    return 2*product
-
-
-
-
-
+    for i in range(1,n+1):
+        product = (((2*i)**2)/(((2*i)**2)+2))
+        half_pi_value = half_pi_value * product
+    pi_value = 2 * half_pi_value
+    return pi_value
 import random
 import math
 def monte_carlo(x):
@@ -23,8 +17,6 @@ def monte_carlo(x):
         rand_x=random.uniform(-1,1)
         rand_y=random.uniform(-1,1)
         distance=math.sqrt(rand_x**2 + rand_y**2)
-
-
         if(distance<1):
             circle_inside_points += 1
 
@@ -34,6 +26,7 @@ def monte_carlo(x):
         pi= (4*circle_inside_points)/square_inside_points
 
     return pi
+ 
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
         for i in range(0, 5):
