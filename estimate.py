@@ -5,8 +5,8 @@ def wallis(n):
     product = 2
     pi_value = 1
     for i in range(n):
-        term = product**2 /(product**2 - 1)
-        pi_value *= term
+        temp = product**2 /(product**2 - 1)
+        pi_value *= temp
         product += 2
 
     return 2*pi_value
@@ -60,8 +60,3 @@ class TestMC(unittest.TestCase):
     
 if __name__ == "__main__":
     unittest.main()
-
-
-    
-
-
